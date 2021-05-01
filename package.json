@@ -1,0 +1,54 @@
+{
+  "name": "@1onlinesolution/dws",
+  "version": "1.0.0",
+  "description": "Utilities for the Web",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "patch": "npm version patch",
+    "minor": "npm version minor",
+    "major": "npm version major",
+    "test": "NODE_ENV=test mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1onlinesolution/dws.git"
+  },
+  "author": "John P",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/1onlinesolution/dws/issues"
+  },
+  "homepage": "https://github.com/1onlinesolution/dws#readme",
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "eslint": "^7.25.0",
+    "eslint-plugin-security": "^1.4.0",
+    "mocha": "^8.3.2",
+    "nyc": "^15.1.0",
+    "prettier": "^2.2.1"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "jsonwebtoken": "^8.5.1"
+  },
+  "mocha": {
+    "watch-files": [
+      "test/**/*.spec.js"
+    ],
+    "watch-ignore": [
+      "node_modules"
+    ],
+    "extension": [
+      "js"
+    ],
+    "slow": "2000=",
+    "timeout": "15000",
+    "reporter": "spec",
+    "require": "dotenv/config",
+    "recursive": "true",
+    "exit": "true"
+  }
+}
