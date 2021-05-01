@@ -48,7 +48,7 @@
       "js"
     ],
     "slow": "2000=",
-    "timeout": "15000",
+    "timeout": "14000",
     "reporter": "spec",
     "require": "dotenv/config",
     "recursive": "true",
