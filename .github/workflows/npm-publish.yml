@@ -17,6 +17,8 @@ jobs:
           node-version: 12
       - run: npm ci
       - run: npm test
+        env:
+          ENCRYPTION_KEY: '43d8b3c1ed2409dee28bf49c56b516b6f86cc8d62bd18f86fd07897e1b4377cd'
 
   publish-npm:
     needs: build
@@ -31,7 +33,6 @@ jobs:
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-          ENCRYPTION_KEY: '43d8b3c1ed2409dee28bf49c56b516b6f86cc8d62bd18f86fd07897e1b4377cd'
 
   publish-gpr:
     needs: build

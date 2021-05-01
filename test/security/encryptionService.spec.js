@@ -3,7 +3,7 @@ const EncryptionService = require('../../lib/security/encryptionService');
 
 describe('EncryptionService', () => {
   const encryptionService = new EncryptionService({ encryptionKey: process.env.ENCRYPTION_KEY });
-  const message = 'I love Greece and my family';
+  const message = 'There you are; I found you';
 
   before(async () => {
     // runs before all tests in this block
