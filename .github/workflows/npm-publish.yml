@@ -18,7 +18,6 @@ jobs:
       - run: npm ci
       - run: npm test
         env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
           ENCRYPTION_KEY: '43d8b3c1ed2409dee28bf49c56b516b6f86cc8d62bd18f86fd07897e1b4377cd'
 
   publish-npm:
