@@ -21,9 +21,6 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '14.x'
-          always-auth: true
-          registry-url: https://registry.npmjs.org
-          scope: '@1onlinesolution'
       - name: Install dependencies
       - run: npm ci
         env:
