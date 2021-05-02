@@ -51,8 +51,6 @@ jobs:
           always-auth: true
           registry-url: https://registry.npmjs.org
           scope: '@1onlinesolution'
-      # Using npm ci installs the versions in the package-lock.json or npm-shrinkwrap.json file and prevents updates to the lock file.
-      # Using npm ci is generally faster than running npm install
       - name: Install dependencies
       - run: npm ci
       - run: npm test
