@@ -53,7 +53,9 @@ jobs:
           scope: '@1onlinesolution'
       - name: Install dependencies
       - run: npm ci
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+      - name: Test
       - run: npm test
         env:
           ENCRYPTION_KEY: ${{secrets.ENCRYPTION_KEY}}
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
