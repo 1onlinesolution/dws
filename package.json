@@ -1,6 +1,6 @@
 {
   "name": "@1onlinesolution/dws",
-  "version": "0.9.22",
+  "version": "0.9.30",
   "description": "Utilities for the Web",
   "main": "index.js",
   "directories": {
@@ -35,7 +35,8 @@
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
-    "jsonwebtoken": "^8.5.1"
+    "jsonwebtoken": "^8.5.1",
+    "nodemailer": "^6.6.0"
   },
   "mocha": {
     "watch-files": [

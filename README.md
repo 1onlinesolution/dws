@@ -5,6 +5,12 @@
 
 **Required Environment Variables**
 
+process.env.EMAIL_HOST
+
+process.env.EMAIL_USERNAME
+
+process.env.EMAIL_PASSWORD
+
 process.env.ENCRYPTION_KEY
 
 process.env.JWT_EXPIRATION_ACCESS_TOKEN
