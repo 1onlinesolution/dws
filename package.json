@@ -17,7 +17,7 @@
     "url": "git+https://github.com/1onlinesolution/dws.git"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/1onlinesolution"
+    "registry": "https://npm.pkg.github.com/"
   },
   "author": "John P",
   "license": "ISC",
