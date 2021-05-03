@@ -43,5 +43,4 @@ jobs:
     - run: npm run build --if-present
     - run: npm test
       env:
-        NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
         ENCRYPTION_KEY: ${{secrets.ENCRYPTION_KEY}}
