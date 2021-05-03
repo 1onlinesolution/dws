@@ -1,6 +1,6 @@
 {
   "name": "@1onlinesolution/dws",
-  "version": "0.9.30",
+  "version": "0.9.40",
   "description": "Utilities for the Web",
   "main": "index.js",
   "directories": {
@@ -35,8 +35,13 @@
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "express-session": "^1.17.1",
     "jsonwebtoken": "^8.5.1",
-    "nodemailer": "^6.6.0"
+    "mongodb": "^3.6.6",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.6.0",
+    "winston": "^3.3.3",
+    "winston-mongodb": "^5.0.7"
   },
   "mocha": {
     "watch-files": [

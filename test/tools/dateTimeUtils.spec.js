@@ -1,5 +1,5 @@
 const assert = require('assert');
-const DateTimeUtils = require('../../lib/dateTime/dateTimeUtils');
+const DateTimeUtils = require('../../lib/tools/dateTimeUtils');
 
 
 describe('DateTimeUtils.dateToUTC', () => {
