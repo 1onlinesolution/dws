@@ -1,5 +1,8 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+# https://docs.github.com/en/actions/guides/building-and-testing-nodejs
+# https://docs.github.com/en/actions/guides/about-packaging-with-github-actions
+# https://docs.github.com/en/actions/guides/publishing-nodejs-packages
 
 name: Node.js CI
 
@@ -12,6 +15,7 @@ on:
 jobs:
   build:
 
+    # Configures job to run on Linux, using the GitHub-hosted ubuntu-latest runners
     runs-on: ubuntu-latest
 
     strategy:
