@@ -45,20 +45,7 @@ jobs:
         NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
         ENCRYPTION_KEY: ${{secrets.ENCRYPTION_KEY}}
 
-#  publish-gpr:
-#    needs: build
-#    runs-on: ubuntu-latest
-#    steps:
-#      - uses: actions/checkout@v2
-#      - uses: actions/setup-node@v2
-#        with:
-#          node-version: ${{ matrix.node-version }}
-#          registry-url: https://npm.pkg.github.com/
-#      - run: npm publish
-#        env:
-#          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-
-  publish-npm:
+  publish-gpr:
     needs: build
     runs-on: ubuntu-latest
     steps:
@@ -66,7 +53,20 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-          registry-url: https://registry.npmjs.org/
+          registry-url: https://npm.pkg.github.com/
       - run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+#  publish-npm:
+#    needs: build
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v2
+#      - uses: actions/setup-node@v2
+#        with:
+#          node-version: ${{ matrix.node-version }}
+#          registry-url: https://registry.npmjs.org/
+#      - run: npm publish
+#        env:
+#          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
