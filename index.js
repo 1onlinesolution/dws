@@ -66,3 +66,10 @@ exports.ProjectStatus = require('./lib/models/documents/apps/projectStatus');
 exports.ProjectData = require('./lib/models/documents/apps/projectData');
 exports.Project = require('./lib/models/documents/apps/project');
 exports.DomainOptions = require('./lib/models/documents/apps/engine/domainOptions');
+
+// Database
+exports.MongoConnection = require('./lib/db/mongodb/mongoConnection');
+exports.MongoDatabase = require('./lib/db/mongodb/mongoDatabase');
+exports.MongoCollection = require('./lib/db/mongodb/mongoCollection');
+exports.DamianosDatabase = require('./lib/db/damianosDb/damianosDatabase');
+exports.StructureDatabase = require('./lib/db/engine/structureDatabase');
