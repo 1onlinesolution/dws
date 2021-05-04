@@ -1,9 +1,13 @@
+// Express
+exports.ExpressApplication = require('./lib/express/expressApplication');
+exports.RouterInfo = require('./lib/express/RouterInfo');
+exports.ControllerBase = require('./lib/express/controllers/controllerBase');
+
 // Security
 exports.PasswordService = require('./lib/security/passwordService');
 exports.EncryptionService = require('./lib/security/encryptionService');
 exports.JwtService = require('./lib/security/jwtService');
 exports.BanUser = require('./lib/security/banUser');
-
 
 // Tools
 exports.DateTimeUtils = require('./lib/tools/dateTimeUtils');
