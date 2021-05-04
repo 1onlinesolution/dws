@@ -11,7 +11,6 @@
     "minor": "npm version minor",
     "major": "npm version major",
     "lint": "eslint *.js lib/**/*.js",
-    "prepublish": "npm run patch",
     "test": "NODE_ENV=test mocha",
     "coverage": "nyc --reporter=lcov --reporter=text --report-dir=./coverage --temp-dir=/Users/ioannis/tmp/.nyc_output npm run test",
     "coverage-clean": "rm -rf ./coverage & rm -rf ./.nyc_output"
