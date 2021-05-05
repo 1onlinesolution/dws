@@ -5,8 +5,7 @@ exports.ControllerBase = require('./lib/express/controllers/controllerBase');
 exports.MongoStore = require('./lib/tools/mongoStore');
 
 // Validators
-exports.BaseValidator = require('./lib/express/validators/baseValidator');
-exports.EmailValidator = require('./lib/express/validators/emailValidator');
+exports.FormFieldValidator = require('./lib/express/validators/formFieldValidator');
 
 // Security
 exports.PasswordService = require('./lib/security/passwordService');
