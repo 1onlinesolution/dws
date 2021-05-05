@@ -1,6 +1,6 @@
 {
   "name": "@1onlinesolution/dws",
-  "version": "0.9.86",
+  "version": "0.9.90",
   "description": "Utilities for the Web",
   "main": "index.js",
   "directories": {
@@ -22,7 +22,7 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
-  "author": "John P",
+  "author": "1onlinesolution",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/1onlinesolution/dws/issues"
@@ -48,6 +48,7 @@
     "express": "^4.17.1",
     "express-handlebars": "^5.3.0",
     "express-session": "^1.17.1",
+    "express-validator": "^6.10.1",
     "handlebars": "^4.7.7",
     "helmet": "^4.6.0",
     "jsonwebtoken": "^8.5.1",

@@ -3,6 +3,10 @@ exports.ExpressApplication = require('./lib/express/expressApplication');
 exports.RouterInfo = require('./lib/express/RouterInfo');
 exports.ControllerBase = require('./lib/express/controllers/controllerBase');
 
+// Validators
+exports.BaseValidator = require('./lib/express/validators/baseValidator');
+exports.EmailValidator = require('./lib/express/validators/emailValidator');
+
 // Security
 exports.PasswordService = require('./lib/security/passwordService');
 exports.EncryptionService = require('./lib/security/encryptionService');
