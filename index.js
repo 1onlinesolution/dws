@@ -2,7 +2,7 @@
 exports.ExpressApplication = require('./lib/express/expressApplication');
 exports.RouterInfo = require('./lib/express/RouterInfo');
 exports.ControllerBase = require('./lib/express/controllers/controllerBase');
-exports.MongoStore = require('connect-mongo');
+exports.MongoStore = require('./lib/tools/mongoStore');
 
 // Validators
 exports.BaseValidator = require('./lib/express/validators/baseValidator');
