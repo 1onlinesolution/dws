@@ -26,7 +26,6 @@ exports.HttpStatusResponse = require('./lib/http/httpStatusResponse');
 
 // Models
 exports.Address = require('./lib/models/documents/sso/address');
-exports.AddressItem = require('./lib/models/documents/sso/addressItem');
 exports.UserStatistics = require('./lib/models/documents/sso/userStatistics');
 exports.UserRole = require('./lib/models/documents/sso/userRole');
 exports.User = require('./lib/models/documents/sso/user');

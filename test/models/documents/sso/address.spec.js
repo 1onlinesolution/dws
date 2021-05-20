@@ -11,6 +11,9 @@ describe('Address empty', () => {
     assert(address.postCode === '');
     assert(address.city === '');
     assert(address.country === '');
+    assert(address.isDefault === false);
+    assert(address.isBilling === false);
+    assert(address.isShipping === false);
     done();
   });
 
@@ -39,7 +42,7 @@ describe('Address empty', () => {
   });
 });
 
-describe('Address.checkPassword throws or returns error', () => {
+describe('Address.checkForError throws or returns error', () => {
   it('if provided with null address', (done) => {
     const error = Address.checkForError(undefined);
     assert(error !== null);

@@ -26,7 +26,7 @@ describe('ApiClient basics', () => {
   });
 });
 
-describe('AddressItem.checkPassword throws or returns error', () => {
+describe('ApiClient.checkForError throws or returns error', () => {
   it('if provided with null email', (done) => {
     assert.throws(() => {
       new ApiClient({ email: null });
