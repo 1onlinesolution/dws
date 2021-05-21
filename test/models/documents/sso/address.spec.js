@@ -10,6 +10,7 @@ describe('Address empty', () => {
     assert(address.line3 === '');
     assert(address.postCode === '');
     assert(address.city === '');
+    assert(address.state === '');
     assert(address.country === '');
     assert(address.isDefault === false);
     assert(address.isBilling === false);
@@ -35,9 +36,23 @@ describe('Address empty', () => {
     const line3 = 'lalala';
     const postCode = 'HP119EW';
     const city = 'Paris';
-    const country = 'Italy';
-    const address = new Address({line1, line2, line3, postCode, city, country});
+    const state = '';
+    const country = 'IT';
+    const address = new Address({line1, line2, line3, postCode, city, state, country});
     assert(address.toString() === `${line1}, ${line2}, ${line3}, ${postCode}, ${city}, ${country}`);
+    done();
+  });
+
+  it('A valid US address gives the correct string representation', (done) => {
+    const line1 = '12 Oxford Street';
+    const line2 = 'Flackwell Heath';
+    const line3 = 'lalala';
+    const postCode = 'HP119EW';
+    const city = 'Paris';
+    const state = 'NJ';
+    const country = 'US';
+    const address = new Address({line1, line2, line3, postCode, city, state, country});
+    assert(address.toString() === `${line1}, ${line2}, ${line3}, ${postCode}, ${city}, ${state}, ${country}`);
     done();
   });
 });
@@ -91,6 +106,18 @@ describe('Address.checkForError throws or returns error', () => {
       const country = '';
       new Address({line1, country });
     }, /invalid address: field 'line1'/);
+    done();
+  });
+
+  it('if provided with no state but with country US', (done) => {
+    assert.throws(() => {
+      const line1 = 'a';
+      const postCode = 'sss';
+      const city = 'xxx';
+      const state = '';
+      const country = 'US';
+      new Address({line1, postCode, city, state, country });
+    }, /invalid state/);
     done();
   });
 });
