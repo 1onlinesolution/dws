@@ -1,6 +1,6 @@
 {
   "name": "@1onlinesolution/dws",
-  "version": "0.82.0",
+  "version": "0.83.0",
   "description": "Utilities for the Web",
   "main": "index.js",
   "directories": {
