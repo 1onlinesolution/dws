@@ -43,7 +43,7 @@
     "@1onlinesolution/dws-mail": "^0.3.0",
     "@1onlinesolution/dws-mongodb": "^0.0.4",
     "@1onlinesolution/dws-session": "^0.0.2",
-    "@1onlinesolution/dws-utils": "^0.2.0",
+    "@1onlinesolution/dws-utils": "^0.4.0",
     "body-parser": "^1.19.0",
     "compression": "^1.7.4",
     "connect-flash": "^0.1.1",
