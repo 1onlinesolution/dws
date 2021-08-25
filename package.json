@@ -1,6 +1,6 @@
 {
   "name": "@1onlinesolution/dws",
-  "version": "0.90.0",
+  "version": "0.100.0",
   "description": "Utilities for the Web",
   "main": "index.js",
   "directories": {
@@ -37,7 +37,13 @@
     "prettier": "^2.2.1"
   },
   "dependencies": {
-    "bcrypt": "^5.0.1",
+    "@1onlinesolution/dws-crypto": "^0.0.3",
+    "@1onlinesolution/dws-http": "^0.0.2",
+    "@1onlinesolution/dws-log": "^0.2.1",
+    "@1onlinesolution/dws-mail": "^0.3.0",
+    "@1onlinesolution/dws-mongodb": "^0.0.4",
+    "@1onlinesolution/dws-session": "^0.0.2",
+    "@1onlinesolution/dws-utils": "^0.2.0",
     "body-parser": "^1.19.0",
     "compression": "^1.7.4",
     "connect-flash": "^0.1.1",
@@ -51,14 +57,10 @@
     "express-validator": "^6.10.1",
     "handlebars": "^4.7.7",
     "helmet": "^4.6.0",
-    "jsonwebtoken": "^8.5.1",
     "method-override": "^3.0.0",
     "moment": "^2.29.1",
     "mongodb": "^3.6.6",
-    "morgan": "^1.10.0",
-    "nodemailer": "^6.6.0",
-    "winston": "^3.3.3",
-    "winston-mongodb": "^5.0.7"
+    "morgan": "^1.10.0"
   },
   "mocha": {
     "watch-files": [

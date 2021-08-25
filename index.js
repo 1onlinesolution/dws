@@ -8,21 +8,36 @@ exports.MongoStore = require('./lib/tools/mongoStore');
 exports.FormFieldValidator = require('./lib/express/validators/formFieldValidator');
 
 // Security
-exports.PasswordService = require('./lib/security/passwordService');
-exports.EncryptionService = require('./lib/security/encryptionService');
-exports.JwtService = require('./lib/security/jwtService');
-exports.BanUser = require('./lib/security/banUser');
+const { PasswordService, EncryptionService, JwtService } = require('@1onlinesolution/dws-crypto');
+exports.PasswordService = PasswordService;
+exports.EncryptionService = EncryptionService;
+exports.JwtService = JwtService;
 
 // Tools
-exports.DateTimeUtils = require('./lib/tools/dateTimeUtils');
-exports.Converter = require('./lib/tools/converter');
-exports.Validity = require('./lib/tools/validity');
-exports.session = require('./lib/tools/session');
+const { DateTimeUtils, Converter, Validity } = require('@1onlinesolution/dws-utils');
+exports.DateTimeUtils = DateTimeUtils;
+exports.Converter = Converter;
+exports.Validity = Validity;
+
+// Session
+exports.session = require('@1onlinesolution/dws-session');
+
+// Log
+const { Logger, consoleOptions, fileOptions, mongoOptions } = require('@1onlinesolution/dws-log');
+exports.Logger = Logger;
+exports.consoleOptions = consoleOptions;
+exports.fileOptions = fileOptions;
+exports.mongoOptions = mongoOptions;
+
+// Mail
+const { EmailService } = require('@1onlinesolution/dws-mail');
+exports.EmailService = EmailService;
 
 // Http
-exports.ipAddress = require('./lib/http/ipAddress');
-exports.HttpStatus = require('./lib/http/httpStatus');
-exports.HttpStatusResponse = require('./lib/http/httpStatusResponse');
+const { ipAddress, HttpStatus, HttpStatusResponse } = require('@1onlinesolution/dws-http');
+exports.ipAddress = ipAddress;
+exports.HttpStatus = HttpStatus;
+exports.HttpStatusResponse = HttpStatusResponse;
 
 // Models
 exports.Address = require('./lib/models/documents/sso/address');
@@ -31,10 +46,9 @@ exports.UserRole = require('./lib/models/documents/sso/userRole');
 exports.User = require('./lib/models/documents/sso/user');
 exports.UserLogin = require('./lib/models/documents/sso/userLogin');
 exports.ApiClientApplication = require('./lib/models/documents/sso/apiClientApplication');
-exports.ApiClient = require('./lib/models/documents/sso/apiClient');
 exports.CreateUserParameters = require('./lib/models/documents/sso/requestParams/createUserParameters');
 exports.UpdateUserParameters = require('./lib/models/documents/sso/requestParams/updateUserParameters');
-exports.AddUserAddressParameters = require('./lib/models/documents/sso/requestParams/addUserAddressParameters');
+exports.CreateUserAddressParameters = require('./lib/models/documents/sso/requestParams/createUserAddressParameters');
 exports.DeleteUserAddressParameters = require('./lib/models/documents/sso/requestParams/deleteUserAddressParameters');
 exports.EmailUserParameters = require('./lib/models/documents/sso/requestParams/emailUserParameters');
 exports.EmailUserDataParameters = require('./lib/models/documents/sso/requestParams/emailUserDataParameters');
@@ -43,10 +57,9 @@ exports.VerifyUserTokenParameters = require('./lib/models/documents/sso/requestP
 exports.ForgotPasswordParameters = require('./lib/models/documents/sso/requestParams/forgotPasswordParameters');
 exports.AutoResetPasswordParameters = require('./lib/models/documents/sso/requestParams/autoResetPasswordParameters');
 exports.ResetPasswordParameters = require('./lib/models/documents/sso/requestParams/resetPasswordParameters');
-exports.CreateApiClientParameters = require('./lib/models/documents/sso/requestParams/createApiClientParameters');
 exports.CreateApiClientApplicationParameters = require('./lib/models/documents/sso/requestParams/createApiClientApplicationParameters');
 exports.CreateApiClientApplicationAuthorizationCodeParameters = require('./lib/models/documents/sso/requestParams/createApiClientApplicationAuthorizationCodeParameters');
-exports.AuthorizeApplicationParameters = require('./lib/models/documents/sso/requestParams/authorizeApplicationParameters');
+exports.AuthorizeApplicationParameters = require('./lib/models/documents/sso/requestParams/authorizeApiClientApplicationParameters');
 exports.PaymentStatus = require('./lib/models/documents/orderPipeline/paymentStatus');
 exports.OrderStatus = require('./lib/models/documents/orderPipeline/orderStatus');
 exports.OrderTerm = require('./lib/models/documents/orderPipeline/orderTerm');
@@ -77,8 +90,11 @@ exports.Project = require('./lib/models/documents/apps/project');
 exports.DomainOptions = require('./lib/models/documents/apps/engine/domainOptions');
 
 // Database
-exports.MongoConnection = require('./lib/db/mongodb/mongoConnection');
-exports.MongoDatabase = require('./lib/db/mongodb/mongoDatabase');
-exports.MongoCollection = require('./lib/db/mongodb/mongoCollection');
+const { ObjectId, MongoConnection, MongoDatabase, MongoCollection } = require('@1onlinesolution/dws-mongodb');
+exports.ObjectId = ObjectId;
+exports.MongoConnection = MongoConnection;
+exports.MongoDatabase = MongoDatabase;
+exports.MongoCollection = MongoCollection;
+
 exports.DamianosDatabase = require('./lib/db/damianosDb/damianosDatabase');
 exports.StructureDatabase = require('./lib/db/engine/structureDatabase');

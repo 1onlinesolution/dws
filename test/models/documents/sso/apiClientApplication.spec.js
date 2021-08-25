@@ -1,44 +1,43 @@
 const assert = require('assert');
 const ApiClientApplication = require('../../../../lib/models/documents/sso/apiClientApplication');
-const CreateApiClientApplicationParameters = require('../../../../lib/models/documents/sso/requestParams/createApiClientApplicationParameters');
+
+const APICLIENTID = 'ade3b3334c4e834c4b24faf7c3fae8e2';
 
 describe('ApiClientApplication basic', () => {
-  it('Creates an empty address item', (done) => {
+  it('Creates an empty ApiClientApplication item', (done) => {
     const app = new ApiClientApplication({
+      apiClientId: APICLIENTID,
       applicationName: 'aaa',
       applicationDescription: 'bbb',
       websiteUrl: 'ccc',
       returnUrl: 'ddd',
-      clientId: 'eee',
-      clientSecret: 'fff',
     });
 
     assert(typeof app === 'object');
+    assert(app.apiClientId === APICLIENTID);
     assert(app.applicationName === 'aaa');
     assert(app.applicationDescription === 'bbb');
     assert(app.websiteUrl === 'ccc');
     assert(app.returnUrl === 'ddd');
-    assert(app.clientId === 'eee');
-    assert(app.clientSecret === 'fff');
     assert(app.createdAt instanceof Date);
     assert(app.modifiedAt instanceof Date);
     assert(app.authorizationCode === null);
     assert(app.authorizationCodeExpirationDate === null);
     assert(app.accessToken === null);
     assert(app.refreshToken === null);
-    assert(app.expiresIn === null);
+    assert(app.accessTokenExpiresIn === 360);
+    assert(app.refreshTokenExpiresIn === 3600);
 
     done();
   });
 
   it('Symbol.species', (done) => {
     const app = new ApiClientApplication({
+      apiClientId: APICLIENTID,
       applicationName: 'aaa',
       applicationDescription: 'bbb',
       websiteUrl: 'ccc',
       returnUrl: 'ddd',
-      clientId: 'eee',
-      clientSecret: 'fff',
     });
 
     assert(app instanceof ApiClientApplication);
@@ -47,12 +46,11 @@ describe('ApiClientApplication basic', () => {
 
   it('gives a payload an authorization code', (done) => {
     const app = new ApiClientApplication({
+      apiClientId: APICLIENTID,
       applicationName: 'aaa',
       applicationDescription: 'bbb',
       websiteUrl: 'ccc',
       returnUrl: 'ddd',
-      clientId: 'eee',
-      clientSecret: 'fff',
     });
 
     const payload = app.getPayload();
@@ -63,12 +61,11 @@ describe('ApiClientApplication basic', () => {
 
   it('creates tokens', async () => {
     const app = new ApiClientApplication({
+      apiClientId: APICLIENTID,
       applicationName: 'aaa',
       applicationDescription: 'bbb',
       websiteUrl: 'ccc',
       returnUrl: 'ddd',
-      clientId: 'eee',
-      clientSecret: 'fff',
     });
 
     const result = await app.createTokens();
@@ -88,15 +85,23 @@ describe('ApiClientApplication.checkPassword throws or returns error', () => {
     done();
   });
 
+  it('if provided with invalid app client id', (done) => {
+    assert.throws(() => {
+      new ApiClientApplication({
+        apiClientId: undefined,
+      });
+    }, /invalid client identifier/);
+    done();
+  });
+
   it('if provided with invalid app name', (done) => {
     assert.throws(() => {
       new ApiClientApplication({
+        apiClientId: APICLIENTID,
         applicationName: undefined,
         applicationDescription: 'bbb',
         websiteUrl: 'ccc',
         returnUrl: 'ddd',
-        clientId: 'eee',
-        clientSecret: 'fff',
       });
     }, /invalid application name/);
     done();
@@ -105,12 +110,11 @@ describe('ApiClientApplication.checkPassword throws or returns error', () => {
   it('if provided with invalid app description', (done) => {
     assert.throws(() => {
       new ApiClientApplication({
+        apiClientId: APICLIENTID,
         applicationName: 'aaa',
         applicationDescription: undefined,
         websiteUrl: 'ccc',
         returnUrl: 'ddd',
-        clientId: 'eee',
-        clientSecret: 'fff',
       });
     }, /invalid application description/);
     done();
@@ -119,12 +123,11 @@ describe('ApiClientApplication.checkPassword throws or returns error', () => {
   it('if provided with invalid website url', (done) => {
     assert.throws(() => {
       new ApiClientApplication({
+        apiClientId: APICLIENTID,
         applicationName: 'aaa',
         applicationDescription: 'bbb',
         websiteUrl: undefined,
         returnUrl: 'ddd',
-        clientId: 'eee',
-        clientSecret: 'fff',
       });
     }, /invalid website URL/);
     done();
@@ -133,102 +136,21 @@ describe('ApiClientApplication.checkPassword throws or returns error', () => {
   it('if provided with invalid return url', (done) => {
     assert.throws(() => {
       new ApiClientApplication({
+        apiClientId: APICLIENTID,
         applicationName: 'aaa',
         applicationDescription: 'bbb',
         websiteUrl: 'ccc',
         returnUrl: undefined,
-        clientId: 'eee',
-        clientSecret: 'fff',
       });
     }, /invalid return URL/);
     done();
-  });
-
-  it('if provided with invalid client identifier', (done) => {
-    assert.throws(() => {
-      const applicationName = 'aaa';
-      const applicationDescription = 'bbb';
-      const websiteUrl = 'ccc';
-      const returnUrl = 'ddd';
-      const clientId = undefined;
-      const clientSecret = 'fff';
-      const createdAt = undefined;
-      const modifiedAt = undefined;
-      const authorizationCode = null;
-      const authorizationCodeExpirationDate = null;
-
-      new ApiClientApplication({
-        applicationName,
-        applicationDescription,
-        websiteUrl,
-        returnUrl,
-        clientId,
-        clientSecret,
-        createdAt,
-        modifiedAt,
-        authorizationCode,
-        authorizationCodeExpirationDate,
-      });
-    }, /invalid client identifier/);
-    done();
-  });
-
-  it('if provided with invalid client secret', (done) => {
-    assert.throws(() => {
-      const applicationName = 'aaa';
-      const applicationDescription = 'bbb';
-      const websiteUrl = 'ccc';
-      const returnUrl = 'ddd';
-      const clientId = 'eee';
-      const clientSecret = undefined;
-      const createdAt = undefined;
-      const modifiedAt = undefined;
-      const authorizationCode = null;
-      const authorizationCodeExpirationDate = null;
-
-      new ApiClientApplication({
-        applicationName,
-        applicationDescription,
-        websiteUrl,
-        returnUrl,
-        clientId,
-        clientSecret,
-        createdAt,
-        modifiedAt,
-        authorizationCode,
-        authorizationCodeExpirationDate,
-      });
-    }, /invalid client secret/);
-    done();
-  });
-});
-
-describe('ApiClientApplication.createApiClientApplication', () => {
-  it('creates an object', async () => {
-    const params = new CreateApiClientApplicationParameters({
-      email: 'aaa@aaa.com',
-      applicationName: 'bbb',
-      applicationDescription: 'ccc',
-      websiteUrl: 'ddd',
-      returnUrl: 'eee',
-    });
-    const item = await ApiClientApplication.createApiClientApplication(params);
-    assert(item instanceof ApiClientApplication);
-  });
-
-  it('throws if provided with invalid params', async () => {
-    try {
-      await ApiClientApplication.createApiClientApplication(null);
-    } catch (err) {
-      assert(err.name === 'Error');
-      assert(err.message === 'invalid parameters');
-    }
   });
 });
 
 describe('ApiClientApplication.generateAuthorizationCode', () => {
   it('generates an authorization code', async () => {
     const app = new ApiClientApplication({
+      apiClientId: APICLIENTID,
       applicationName: 'aaa',
       applicationDescription: 'bbb',
       websiteUrl: 'ccc',
@@ -256,6 +178,7 @@ describe('ApiClientApplication.generateAuthorizationCode', () => {
 describe('ApiClientApplication.createTokens', () => {
   it('creates tokens', async () => {
     const app = new ApiClientApplication({
+      apiClientId: APICLIENTID,
       applicationName: 'aaa',
       applicationDescription: 'bbb',
       websiteUrl: 'ccc',
