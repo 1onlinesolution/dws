@@ -65,6 +65,7 @@ exports.OrderStatus = require('./lib/models/documents/orderPipeline/orderStatus'
 exports.OrderTerm = require('./lib/models/documents/orderPipeline/orderTerm');
 exports.Customer = require('./lib/models/documents/orderPipeline/customer');
 exports.ProductFeature = require('./lib/models/documents/orderPipeline/productFeature');
+exports.ProductCategory = require('./lib/models/documents/orderPipeline/productCategory');
 exports.Product = require('./lib/models/documents/orderPipeline/product');
 exports.OrderItem = require('./lib/models/documents/orderPipeline/orderItem');
 exports.Order = require('./lib/models/documents/orderPipeline/order');
