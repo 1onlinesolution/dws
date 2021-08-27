@@ -25,8 +25,8 @@ describe('ApiClientApplication basic', () => {
     assert(app.authorizationCodeExpirationDate === null);
     assert(app.access_token === null);
     assert(app.refresh_token === null);
-    assert(app.accessTokenExpiresIn === 360);
-    assert(app.refreshTokenExpiresIn === 3600);
+    assert(app.access_token_expires_in === 360);
+    assert(app.refresh_token_expires_in === 3600);
 
     done();
   });
@@ -73,8 +73,8 @@ describe('ApiClientApplication basic', () => {
     assert(typeof result === 'object');
     assert(result.access_token !== '');
     assert(result.refresh_token !== '');
-    assert(result.accessTokenExpiresIn > 0);
-    assert(result.refreshTokenExpiresIn > 0);
+    assert(result.access_token_expires_in > 0);
+    assert(result.refresh_token_expires_in > 0);
   });
 });
 
