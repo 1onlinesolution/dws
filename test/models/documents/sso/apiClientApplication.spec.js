@@ -23,8 +23,8 @@ describe('ApiClientApplication basic', () => {
     assert(app.modified_at instanceof Date);
     assert(app.authorization_code === null);
     assert(app.authorizationCodeExpirationDate === null);
-    assert(app.accessToken === null);
-    assert(app.refreshToken === null);
+    assert(app.access_token === null);
+    assert(app.refresh_token === null);
     assert(app.accessTokenExpiresIn === 360);
     assert(app.refreshTokenExpiresIn === 3600);
 
@@ -71,8 +71,8 @@ describe('ApiClientApplication basic', () => {
     const result = await app.createTokens();
     // console.log(`result = ${JSON.stringify(result)}`);
     assert(typeof result === 'object');
-    assert(result.accessToken !== '');
-    assert(result.refreshToken !== '');
+    assert(result.access_token !== '');
+    assert(result.refresh_token !== '');
     assert(result.accessTokenExpiresIn > 0);
     assert(result.refreshTokenExpiresIn > 0);
   });
