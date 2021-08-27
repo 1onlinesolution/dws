@@ -15,7 +15,7 @@ describe('UserLogin empty', () => {
     assert(userLogin.email !== '');
 
     assert(userLogin._id === null);
-    assert(userLogin.createdAt !== null);
+    assert(userLogin.created_at !== null);
     done();
   });
 

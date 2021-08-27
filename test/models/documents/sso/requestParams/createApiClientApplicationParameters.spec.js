@@ -4,21 +4,21 @@ const CreateApiClientApplicationParameters = require('../../../../../lib/models/
 const API_CLIENT_ID = 'ade3b3334c4e834c4b24faf7c3fae8e2';
 
 describe('ApiClient.checkForError throws or returns error', () => {
-  it('if provided with null apiClientId', (done) => {
+  it('if provided with null api_client_id', (done) => {
     assert.throws(() => {
       new CreateApiClientApplicationParameters({
-        apiClientId: null
+        api_client_id: null
       });
     }, /invalid client identifier/);
     done();
   });
 
-  it('if provided with null applicationName', (done) => {
+  it('if provided with null application_name', (done) => {
     assert.throws(() => {
       new CreateApiClientApplicationParameters({
-        apiClientId: API_CLIENT_ID,
-        applicationName: null,
-        applicationDescription: 'ccc',
+        api_client_id: API_CLIENT_ID,
+        application_name: null,
+        application_description: 'ccc',
         websiteUrl: 'ddd',
         returnUrl: 'eee',
       });
@@ -26,12 +26,12 @@ describe('ApiClient.checkForError throws or returns error', () => {
     done();
   });
 
-  it('if provided with null applicationDescription', (done) => {
+  it('if provided with null application_description', (done) => {
     assert.throws(() => {
       new CreateApiClientApplicationParameters({
-        apiClientId: API_CLIENT_ID,
-        applicationName: 'aaa',
-        applicationDescription: null,
+        api_client_id: API_CLIENT_ID,
+        application_name: 'aaa',
+        application_description: null,
         websiteUrl: 'ddd',
         returnUrl: 'eee',
       });
@@ -42,9 +42,9 @@ describe('ApiClient.checkForError throws or returns error', () => {
   it('if provided with null websiteUrl', (done) => {
     assert.throws(() => {
       new CreateApiClientApplicationParameters({
-        apiClientId: API_CLIENT_ID,
-        applicationName: 'ddd',
-        applicationDescription: 'ccc',
+        api_client_id: API_CLIENT_ID,
+        application_name: 'ddd',
+        application_description: 'ccc',
         websiteUrl: null,
         returnUrl: 'eee',
       });
@@ -55,9 +55,9 @@ describe('ApiClient.checkForError throws or returns error', () => {
   it('if provided with null returnUrl', (done) => {
     assert.throws(() => {
       new CreateApiClientApplicationParameters({
-        apiClientId: API_CLIENT_ID,
-        applicationName: 'ddd',
-        applicationDescription: 'ccc',
+        api_client_id: API_CLIENT_ID,
+        application_name: 'ddd',
+        application_description: 'ccc',
         websiteUrl: 'eee',
         returnUrl: null,
       });

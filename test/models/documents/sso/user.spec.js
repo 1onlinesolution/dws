@@ -3,21 +3,21 @@ const User = require('../../../../lib/models/documents/sso/user');
 const UserStatistics = require('../../../../lib/models/documents/sso/userStatistics');
 
 describe('User empty', () => {
-  const firstName = 'John';
-  const lastName = 'Smith';
-  const userName = 'jsmith';
+  const first_name = 'John';
+  const last_name = 'Smith';
+  const user_name = 'jsmith';
   const email = 'a@a.com';
   const user = new User({
-    firstName, lastName, email, userName, ignorePassword: true
+    first_name, last_name, email, user_name, ignore_password: true
   });
 
   it('Creates a basic User', (done) => {
     assert(typeof user === 'object');
-    assert(user.firstName === firstName);
-    assert(user.lastName === lastName);
-    assert(user.userName === userName);
+    assert(user.first_name === first_name);
+    assert(user.last_name === last_name);
+    assert(user.user_name === user_name);
     assert(user.email === email);
-    assert(user.autoVerify === false);
+    assert(user.auto_verify === false);
     assert(user.newsletter === true);
     assert(user.verified === false);
     assert(user.verification_token === null);
@@ -28,11 +28,11 @@ describe('User empty', () => {
     assert(user.api_client_secret === null);
     assert(user.jwt_access_token === null);
     assert(user.jwt_refresh_token === null);
-    assert(user.createdRefreshTokenAt === null);
+    assert(user.refresh_token_created_at === null);
 
     assert(user.stats instanceof UserStatistics);
-    assert(user.createdAt instanceof Date);
-    assert(user.modifiedAt instanceof Date);
+    assert(user.created_at instanceof Date);
+    assert(user.modified_at instanceof Date);
     done();
   });
 
@@ -49,34 +49,34 @@ describe('User.checkForError throws or returns error', () => {
     done();
   });
 
-  it('if not provided with firstName', (done) => {
+  it('if not provided with first_name', (done) => {
     assert.throws(() => {
       new User({
-        firstName: undefined,
-        ignorePassword: true,
+        first_name: undefined,
+        ignore_password: true,
       });
-    }, /invalid firstName/);
+    }, /invalid first_name/);
     done();
   });
 
-  it('if not provided with lastName', (done) => {
+  it('if not provided with last_name', (done) => {
     assert.throws(() => {
       new User({
-        firstName: 'John',
-        lastName: undefined,
-        ignorePassword: true,
+        first_name: 'John',
+        last_name: undefined,
+        ignore_password: true,
       });
-    }, /invalid lastName/);
+    }, /invalid last_name/);
     done();
   });
 
   it('if not provided with user name', (done) => {
     assert.throws(() => {
       new User({
-        firstName: 'John',
-        lastName: 'Smith',
-        userName: undefined,
-        ignorePassword: true,
+        first_name: 'John',
+        last_name: 'Smith',
+        user_name: undefined,
+        ignore_password: true,
       });
     }, /invalid user name/);
     done();
@@ -85,24 +85,24 @@ describe('User.checkForError throws or returns error', () => {
   it('if not provided with email', (done) => {
     assert.throws(() => {
       new User({
-        firstName: 'John',
-        lastName: 'Smith',
-        userName: 'lalala',
+        first_name: 'John',
+        last_name: 'Smith',
+        user_name: 'lalala',
         email: undefined,
-        ignorePassword: true,
+        ignore_password: true,
       });
     }, /invalid email/);
     done();
   });
 
-  it('if not provided with userName', (done) => {
+  it('if not provided with user_name', (done) => {
     assert.throws(() => {
       new User({
-        firstName: 'John',
-        lastName: 'Smith',
+        first_name: 'John',
+        last_name: 'Smith',
         email: 'a@a.com',
-        userName: undefined,
-        ignorePassword: true,
+        user_name: undefined,
+        ignore_password: true,
       });
     }, /invalid user name/);
     done();
