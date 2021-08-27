@@ -58,8 +58,8 @@ describe('ApiClient.checkForError throws or returns error', () => {
         api_client_id: API_CLIENT_ID,
         application_name: 'ddd',
         application_description: 'ccc',
-        websiteUrl: 'eee',
-        returnUrl: null,
+        website_url: 'eee',
+        return_url: null,
       });
     }, /invalid return URL/);
     done();
